@@ -26,14 +26,14 @@ export default function Header() {
   return (
     <AppBar position="relative">
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+        <Typography variant="h5" sx={{ flexGrow: 1 }}>
           <Link
             component={RouterLink}
             sx={{ color: "inherit" }}
             underline="none"
             to="/"
           >
-            My Store!
+            My Store! (CDK version)
           </Link>
         </Typography>
 
