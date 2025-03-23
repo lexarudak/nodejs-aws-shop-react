@@ -24,7 +24,8 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
   };
 
   const uploadFile = async () => {
-    console.log("uploadFile to", url);
+
+    try {console.log("uploadFile to", url);
 
     const response = await axios({
       method: "GET",
@@ -43,7 +44,15 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
       body: file,
     });
     console.log("Result: ", result);
-    setFile(undefined);
+    setFile(undefined)} catch (e: any) {
+      if (e?.response?.status === 403) {
+        alert("403. Access token not found. Check your LocalStorage");
+      }
+      if (e?.response?.status === 401) {
+        alert("401. Invalid access token. Check your LocalStorage");
+      }
+    }
+    
   };
   return (
     <Box>
