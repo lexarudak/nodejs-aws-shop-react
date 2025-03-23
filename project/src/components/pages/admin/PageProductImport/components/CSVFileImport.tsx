@@ -33,11 +33,8 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
         body: file,
       });
 
-      if (!result.ok) {
-        throw new Error("Failed to upload file to S3");
-      }
-
-      console.log("File uploaded successfully");
+      console.log("Result: ", result);
+      setFile(undefined);
       return result;
     }
   );
